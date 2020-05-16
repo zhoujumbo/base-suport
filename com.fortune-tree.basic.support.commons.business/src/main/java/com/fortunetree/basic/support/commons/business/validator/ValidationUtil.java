@@ -3,7 +3,6 @@ package com.fortunetree.basic.support.commons.business.validator;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import lombok.Data;
 import org.hibernate.validator.HibernateValidator;
 
 import javax.validation.ConstraintViolation;
@@ -72,7 +71,6 @@ public class ValidationUtil {
     /**
      * 校验结果类
      */
-    @Data
     public class ValidResult {
 
         /**
@@ -145,9 +143,21 @@ public class ValidationUtil {
         public void addError(String propertyName, String message) {
             this.errors.add(new ErrorMessage(propertyName, message));
         }
+
+        public boolean isHasErrors() {
+            return hasErrors;
+        }
+
+        public List<ErrorMessage> getErrors() {
+            return errors;
+        }
+
+        public ValidResult setErrors(List<ErrorMessage> errors) {
+            this.errors = errors;
+            return this;
+        }
     }
 
-    @Data
     public class ErrorMessage {
 
         private String propertyPath;
@@ -160,6 +170,24 @@ public class ValidationUtil {
         public ErrorMessage(String propertyPath, String message) {
             this.propertyPath = propertyPath;
             this.message = message;
+        }
+
+        public String getPropertyPath() {
+            return propertyPath;
+        }
+
+        public ErrorMessage setPropertyPath(String propertyPath) {
+            this.propertyPath = propertyPath == null ? null : propertyPath.trim();
+            return this;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public ErrorMessage setMessage(String message) {
+            this.message = message == null ? null : message.trim();
+            return this;
         }
     }
 
