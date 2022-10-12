@@ -40,7 +40,7 @@
 		<oauth2.version>2.0.0.RELEASE</oauth2.version>
 		<social.version>1.1.6.RELEASE</social.version>
 		<!-- shiro -->
-		<shiro.version>1.2.2</shiro.version>
+		<shiro.version>1.10.0</shiro.version>
 		<!-- commons -->
 		<commons.beanutils.version>1.7.0</commons.beanutils.version>
 		<commons.collections.version>3.2.1</commons.collections.version>
